@@ -126,6 +126,21 @@ npm run dev
 npm run deploy
 ```
 
+## A note on the free tier
+
+These services run on Cloudflare's free plan, which caps D1 at **100,000 row
+writes per day**. One full roster sync of the demonstration district writes
+roughly 90,000 rows (29,115 staged, 29,115 sync records, and the operational
+tables), so a second full sync on the same day exhausts the quota and writes
+begin to fail with a clear D1 error.
+
+Reads are unaffected: the applied roster, the dashboards and the APIs keep
+working. It is a quota, not a defect, and the fix is either the $5/month Workers
+Paid plan or waiting for the reset at midnight UTC.
+
+Worth knowing before demonstrating this to anyone: run a full sync the day
+before, not five minutes before.
+
 ## Status and honest limits
 
 - The sync, the gates, identity resolution and the compliance operations are
