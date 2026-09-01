@@ -1,0 +1,22 @@
+{
+  "name": "roster-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "District rostering and compliance platform: a resumable OneRoster sync with validation gates, identity resolution that survives a SIS migration, and the FERPA and state-law operations a district actually asks for.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": { "hono": "^4.6.14" },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@playwright/test": "^1.49.1",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^4.86.0"
+  }
+}

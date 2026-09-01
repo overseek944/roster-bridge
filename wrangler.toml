@@ -1,0 +1,23 @@
+name = "roster-bridge"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "roster-bridge"
+database_id = "e419857b-3ac4-4d81-82dc-2f944971f64e"
+migrations_dir = "migrations"
+
+# Rostering is a nightly job for most of the year. During the August rollover
+# window a district's schedule changes daily, so this runs more often than the
+# once-a-night that would otherwise be enough.
+[triggers]
+crons = ["0 */3 * * *"]
+
+[[routes]]
+pattern = "roster-bridge.pretoni.com"
+custom_domain = true
